@@ -11,6 +11,7 @@ using namespace std;
 class Clothing{
     public:
         Clothing(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness);
+        Clothing();
         string getColor();
         bool getPattern();
         int getWarmth();
@@ -21,7 +22,7 @@ class Clothing{
     private:
         string color;
         bool pattern;
-        int warmth_level;
+        int warmth_Level;
         bool raining;
         bool basic;
         int dressiness;
@@ -30,7 +31,7 @@ class Clothing{
 
 class Top : public Clothing{
     public:
-        Top(int sleeve_length);
+        Top(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, int sleeve_length);
         int getSleeveLength();
         string itemDescription();
     private:
@@ -39,7 +40,7 @@ class Top : public Clothing{
 
 class Bottom : public Clothing{
     public:
-        Bottom(bool shorts, bool skirt);
+        Bottom(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, bool shorts, bool skirt);
         bool getShort();
         bool getSkirt();
         string itemDescription();
@@ -52,7 +53,7 @@ class Bottom : public Clothing{
 
 class Dress : public Clothing{
     public:
-        Dress(string length);
+        Dress(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length);
         string getLength();
         string itemDescription();
     private:
@@ -62,7 +63,7 @@ class Dress : public Clothing{
 
 class Coat : public Clothing{
     public:
-        Coat(int length, bool waterproof);
+        Coat(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length, bool waterproof);
         string getLength();
         bool getWaterpoof();
         string itemDescription();
@@ -75,7 +76,7 @@ class Coat : public Clothing{
 
 class Shoes : public Clothing{
     public:
-        Shoes(bool openToe, bool heel, bool sneaker);
+        Shoes(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, bool openToe, bool heel, bool sneaker);
         bool getOpenToe();
         bool getHeel();
         bool getSneaker();
@@ -89,7 +90,7 @@ class Shoes : public Clothing{
 
 class Accessories : public Clothing{
     public:
-        Accessories(string type);
+        Accessories(string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string type);
         string itemDescription();
         string getType();
 
