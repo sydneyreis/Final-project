@@ -7,9 +7,10 @@
 #include <vector>
 #include <map>
 
+template <typename T>
 class Closet{
     public:
-        void addItem();
+        void addClothing(string itemType, vector<T> itemAttributes);
         void removeItem(int idx);
         void showCloset();
         vector<Clothing> generateOutfit(int dressiness, int avgTemp);
@@ -19,6 +20,7 @@ class Closet{
     private:
         vector<vector<Clothing>> savedOutfits;
         vector <Clothing> closetItems;
+
 
 };
 
