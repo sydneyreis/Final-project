@@ -69,14 +69,9 @@ class Dress : public Clothing{
 
 class Coat : public Clothing{
     public:
-        Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length, bool waterproof);
-        string getLength();
-        bool getWaterpoof();
+        Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness);
         string itemDescription();
 
-    private:
-        string length;
-        bool waterproof;
 };
 
 
