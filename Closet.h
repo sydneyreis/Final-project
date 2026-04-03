@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <random>
 #include "Clothing.h"
 
 using namespace std;
@@ -305,9 +306,24 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
         }
     }
 
-    int top = tops.size();
-    int bottom = bottoms.size();
-    int shoe = shoes.size();
+    int top = tops.size() - 1;
+    int bottom = bottoms.size() - 1;
+    int shoe = shoes.size() - 1;
+
+    random_device rd;
+    mt19937 gen(rd());
+
+    uniform_int_distribution<int> distt(0, top);
+    uniform_int_distribution<int> distb(0, bottom);
+    uniform_int_distribution<int> dists(0, shoe);
+
+    int topz = distt(gen);
+    int bottomz = distb(gen);
+    int shoez = dists(gen);
+
+    outfit[0] = tops[topz];
+    outfit[1] = bottoms[bottomz];
+    outfit[2] = shoes[shoez];
 
     return outfit;
 }
