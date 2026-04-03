@@ -19,7 +19,7 @@ class Clothing{
         int getWarmth();
         bool getRaining();
         int getDressiness();
-        virtual string itemDescription();
+        virtual string itemDescription() = 0;
 
     private:
         string color;

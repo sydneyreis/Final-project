@@ -224,7 +224,7 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
         if(closetItems[i]->getType() == "Bottom"){
             bottoms.push_back(closetItems[i]);
         }
-        if(closetItems[i]->getType() == "Shoe"){
+        if(closetItems[i]->getType() == "Shoes"){
             shoes.push_back(closetItems[i]);
         }
     }
@@ -233,19 +233,19 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
     int maxDress = dressiness + 1;
 
     //removing items that are not the appropriate level of dressy
-    for(int i = 0; i < tops.size(); i++){
+    for(int i = tops.size() - 1; i >= 0; i--){
         if (!(tops[i]->getDressiness() >= minDress && tops[i]->getDressiness() <= maxDress)) {
             tops.erase(tops.begin() + i);
         }
     }
 
-    for(int i = 0; i < bottoms.size(); i++){
+    for(int i = bottoms.size() - 1; i >= 0; i--){
         if(!(bottoms[i]->getDressiness() >= minDress && bottoms[i]->getDressiness() <= maxDress)){
             bottoms.erase(bottoms.begin() + i);
         }
     }
 
-    for(int i = 0; i < shoes.size(); i++){
+    for(int i = shoes.size() - 1; i >= 0; i--){
         if(!(shoes[i]->getDressiness() >= minDress && shoes[i]->getDressiness() <= maxDress)){
             shoes.erase(shoes.begin() + i);
         }
