@@ -1,0 +1,57 @@
+#include "AuthSystem.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+bool AuthSystem::showLoginMenu(UserProfile& profile) {
+    int choice;
+    cout << "\n===== ForecastFits =====\n";
+    cout << "1. Login\n";
+    cout << "2. Sign Up\n";
+    cout << "3. Exit\n";
+    cout << "Choice: ";
+    cin >> choice;
+    cin.ignore();
+
+    if (choice == 1) return handleLogin(profile);
+    if (choice == 2) return handleSignup(profile);
+    return false;
+}
+
+bool AuthSystem::handleLogin(UserProfile& profile) {
+    string username, password;
+    cout << "\n-- Login --\n";
+    cout << "Username: ";
+    getline(cin, username);
+    cout << "Password: ";
+    getline(cin, password);
+
+    return profile.login(username, password);
+}
+
+bool AuthSystem::handleSignup(UserProfile& profile) {
+    string username, password, zip;
+    cout << "\n-- Sign Up --\n";
+    cout << "Choose a username: ";
+    getline(cin, username);
+
+    // Check if username already exists
+    ifstream check(username + ".txt");
+    if (check.is_open()) {
+        cout << "Username already taken. Please log in instead.\n";
+        return false;
+    }
+
+    cout << "Choose a password: ";
+    getline(cin, password);
+    cout << "Enter your zip code: ";
+    getline(cin, zip);
+
+    // Write the new profile file directly so login() can load it
+    ofstream file(username + ".txt");
+    file << username << "\n" << password << "\n" << zip << "\n";
+    file.close();
+
+    cout << "Account created!\n";
+    return profile.login(username, password);
+}
