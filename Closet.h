@@ -11,18 +11,16 @@ template <typename T>
 class Closet{
     public:
         //void addClothing(string itemType, vector<T> itemAttributes);
-       void addClothing();
+        Closet();
+        void addClothing();
         void removeItem(string name);
         void showCloset();
-        vector<Clothing> generateOutfit(int dressiness, int avgTemp);
-        void saveOutfit(vector<Clothing> newOutfit);
+        vector<Clothing*> generateOutfit(int dressiness, int avgTemp);
+        void saveOutfit(vector<Clothing*> newOutfit);
         void showOutfits();
-        Closet();
-        vector<vector<Clothing>> savedOutfits;
-        vector <Clothing> closetItems;
-        
-
-
+        ~Closet();
+        vector<vector<Clothing*>> savedOutfits;
+        vector <Clothing*> closetItems;
 };
 
 #endif

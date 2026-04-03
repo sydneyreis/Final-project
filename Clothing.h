@@ -33,7 +33,6 @@ class Clothing{
 
 };
 
-#endif
 
 class Top : public Clothing{
     public:
@@ -69,9 +68,15 @@ class Dress : public Clothing{
 
 class Coat : public Clothing{
     public:
-        Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness);
+        Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length, bool waterproof);
         string itemDescription();
 
+        string getLength();
+        bool getWaterproof();
+
+    private: 
+        string length;
+        bool waterproof;
 };
 
 
@@ -99,3 +104,4 @@ class Accessories : public Clothing{
         string typeAC;
 };
 
+#endif

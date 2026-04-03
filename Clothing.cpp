@@ -82,10 +82,10 @@ string Bottom::itemDescription(){
     else
         desc += ", and solid";
     desc += ", with a warmth level of " + to_string(getWarmth());
-    if(getShort){
+    if(getShort()){
         desc += " and is a pair of shorts";
     }
-    if(getSkirt){
+    if(getSkirt()){
         desc += " and is a skirt";
     }
 
@@ -121,7 +121,7 @@ string Coat::getLength(){
     return length;
 }
 
-bool Coat::getWaterpoof(){
+bool Coat::getWaterproof(){
     return waterproof;
 }
 
@@ -133,7 +133,7 @@ string Coat::itemDescription(){
     else
         desc += ", and solid";
     desc += ", with a warmth level of " + to_string(getWarmth());
-    if(getWaterpoof()){
+    if(getWaterproof()){
         desc += " and is waterproof";
     }
 
