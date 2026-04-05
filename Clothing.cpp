@@ -18,6 +18,10 @@ bool Clothing::getPattern(){
     return pattern;
 }
 
+bool Clothing::getBasic() {
+    return basic;
+}
+
 int Clothing::getWarmth(){
     return warmth_Level;
 }
@@ -62,6 +66,13 @@ string Top::itemDescription(){
     return desc;
 }
 
+string Top::serialize() {
+    return "Top," + getName() + "," + getType() + "," + getColor() + "," +
+           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
+           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
+           to_string(getDressiness()) + "," + sleeve_length;
+}
+
 Bottom::Bottom(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, bool shorts, bool skirt)
     : Clothing(name, type, color, pattern, warmth_Level, raining, basic, dressiness),
       shorts(shorts), skirt(skirt) {}
@@ -92,6 +103,14 @@ string Bottom::itemDescription(){
     return desc;
 }
 
+string Bottom::serialize() {
+    return "Bottom," + getName() + "," + getType() + "," + getColor() + "," +
+           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
+           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
+           to_string(getDressiness()) + "," +
+           to_string(shorts) + "," + to_string(skirt);
+}
+
 Dress::Dress(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length)
     : Clothing(name, type, color, pattern, warmth_Level, raining, basic, dressiness),
       length(length) {}
@@ -111,6 +130,13 @@ string Dress::itemDescription(){
     //desc += " and is " to_string(getLength());
 
     return desc;
+}
+
+string Dress::serialize() {
+    return "Dress," + getName() + "," + getType() + "," + getColor() + "," +
+           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
+           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
+           to_string(getDressiness()) + "," + length;
 }
 
 Coat::Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length, bool waterproof)
@@ -138,6 +164,13 @@ string Coat::itemDescription(){
     }
 
     return desc;
+}
+
+string Coat::serialize() {
+    return "Coat," + getName() + "," + getType() + "," + getColor() + "," +
+           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
+           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
+           to_string(getDressiness()) + "," + length + "," + to_string(waterproof);
 }
 
 Shoes::Shoes(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, bool openToe, bool heel, bool sneaker)
@@ -176,6 +209,14 @@ string Shoes::itemDescription(){
     return desc;
 }
 
+string Shoes::serialize() {
+    return "Shoes," + getName() + "," + getType() + "," + getColor() + "," +
+           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
+           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
+           to_string(getDressiness()) + "," +
+           to_string(openToe) + "," + to_string(heel) + "," + to_string(sneaker);
+}
+
 Accessories::Accessories(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string typeAC)
     : Clothing(name, type, color, pattern, warmth_Level, raining, basic, dressiness),
       typeAC(typeAC) {}
@@ -191,4 +232,11 @@ string Accessories::itemDescription(){
     desc += getType();
    
     return desc;
+}
+
+string Accessories::serialize() {
+    return "Accessories," + getName() + "," + getType() + "," + getColor() + "," +
+           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
+           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
+           to_string(getDressiness()) + "," + typeAC;
 }

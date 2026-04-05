@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#pragma once
 
 using namespace std;
 
@@ -16,10 +17,12 @@ class Clothing{
         string getType();
         string getColor();
         bool getPattern();
+        bool getBasic();
         int getWarmth();
         bool getRaining();
         int getDressiness();
         virtual string itemDescription() = 0;
+        virtual string serialize() = 0;
 
     private:
         string color;
@@ -39,6 +42,7 @@ class Top : public Clothing{
         Top(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string sleeve_length);
         string getSleeveLength();
         string itemDescription();
+        string serialize() override;
     private:
         string sleeve_length;
 };
@@ -49,7 +53,7 @@ class Bottom : public Clothing{
         bool getShort();
         bool getSkirt();
         string itemDescription();
-
+        string serialize() override;
     private:
         bool shorts;
         bool skirt;
@@ -61,6 +65,7 @@ class Dress : public Clothing{
         Dress(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length);
         string getLength();
         string itemDescription();
+        string serialize() override;
     private:
         string length;
     
@@ -70,6 +75,7 @@ class Coat : public Clothing{
     public:
         Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length, bool waterproof);
         string itemDescription();
+        string serialize() override;
 
         string getLength();
         bool getWaterproof();
@@ -87,6 +93,7 @@ class Shoes : public Clothing{
         bool getHeel();
         bool getSneaker();
         string itemDescription();
+        string serialize() override;
 
     private:
         bool openToe;
@@ -98,6 +105,7 @@ class Accessories : public Clothing{
     public:
         Accessories(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string typeAC);
         string itemDescription();
+        string serialize() override;
         string getType();
 
     private:

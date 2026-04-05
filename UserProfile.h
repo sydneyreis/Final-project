@@ -2,6 +2,7 @@
 #define USERPROFILE_H
 
 #include "Closet.h"
+#include "Clothing.h"
 #include <string>
 
 using namespace std;
@@ -13,18 +14,19 @@ public:
 
     bool login(const string& username, const string& password);
     void logout();
+
     string getLocation();
-    Closet& getCloset();
-    void updateProfile();
     string getUsername();
+
+    Closet<Clothing>& getCloset();
+    
+    void saveToFile();
+    bool loadFromFile();
 private:
     string username;
     string zipCode;
     string password;
-    Closet closet;
-
-    void saveToFile();
-    bool loadFromFile();
+    Closet<Clothing> closet;
 };
 
 #endif

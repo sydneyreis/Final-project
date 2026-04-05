@@ -3,6 +3,8 @@
 #include <string>
 #include "Clothing.h"
 #include "Closet.h"
+#include "UserProfile.h"
+#include "AuthSystem.h"
 
 using namespace std;
 
@@ -26,19 +28,28 @@ Clothing* get_Item(string item_name, vector<Clothing*> closetItems) {
 }
 
 int main(){
-    // -------------------- USERNAME AND PASSWORD --------------------
-    string user_name; string password;
-    cout << "Welcome to the Forecast Fits!" << endl;
-    cout << "Please enter/create your username: " ; getline(cin, user_name);
-    cout << "Please enter/create your password: " ; getline(cin, password);
-    Closet<Clothing> user_closet; 
+    UserProfile profile;
+    AuthSystem auth;
+    bool loggedIn = false;
+
+    // -------------------- LOGGING IN --------------------
+
+    while (!loggedIn) {
+        loggedIn = auth.showLoginMenu(profile);
+        if (!loggedIn) {
+            // showLoginMenu returns false on Exit (choice 3)
+            cout << "Goodbye!" << endl;
+            return 0;
+        }
+    }
+    Closet<Clothing>& user_closet = profile.getCloset(); 
 
 
     // -------------------- MAIN LOOP --------------------
     while (true) {
         int choice = main_menu();
         if (choice == 0){
-            cout << "Goodbye!" << endl;
+            profile.logout();
             break;
         } else if (choice == 1) { // ADD CLOTHING ITEM 
             user_closet.addClothing();
@@ -52,13 +63,18 @@ int main(){
         } else if (choice == 3) { // GENERATE OUTFIT
             string test;
             getline(cin, test);
-            string dressinessLevel;
+            int dressinessLevel;
             int temp;
-            cout << "Please enter dressiness: " << endl; getline(cin, dressinessLevel);
+            cout << "Please enter dressiness: " << endl; 
+            cin >> dressinessLevel;
+            cin.ignore();
             cout << "Please average temperature: " << endl; 
             cin >> temp;
             cin.ignore();
-            // user_closet.generateOutfit();
+            vector<Clothing*> outfit = user_closet.generateOutfit(dressinessLevel, temp);
+            for (Clothing* item : outfit) {
+                cout << "+ " << item->getName() << ": " << item->itemDescription() << endl;
+            }
         } else if (choice == 4) { // SAVE AN OUTFIT
             vector<Clothing*> outfitItems;
             string user_input;
@@ -73,7 +89,6 @@ int main(){
                     cout << "That item does not exist in the closet. Please enter a valid item: " << endl;
                 }
             }
-            cout << "Please enter/create your username: " << endl; getline(cin, user_name);
             user_closet.saveOutfit(outfitItems);
         } else if (choice == 5) { // SHOW SAVED OUTFITS
             user_closet.showOutfits();
@@ -99,5 +114,6 @@ int main_menu() { // Main Menu Options
     cout << "Please choose an option: \n> ";
     int choice;
     cin >> choice;
+    cin.ignore();
     return choice;
 }

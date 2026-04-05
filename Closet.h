@@ -83,9 +83,9 @@ void Closet<T>::showOutfits() {
 template <typename T>
 void Closet<T>::addClothing() {
 
-    cout << "Answer these questions about your item!" << endl;
-    string test;
-    getline(cin, test);
+    cout << "Answer these questions about your item!\n" << endl;
+    // string test;
+    // getline(cin, test);
 
     cout << "Enter a name for your item" << endl;
     string name;

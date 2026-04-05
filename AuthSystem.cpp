@@ -9,12 +9,16 @@ bool AuthSystem::showLoginMenu(UserProfile& profile) {
     cout << "1. Login\n";
     cout << "2. Sign Up\n";
     cout << "3. Exit\n";
-    cout << "Choice: ";
+    cout << "\nChoice: ";
     cin >> choice;
     cin.ignore();
 
-    if (choice == 1) return handleLogin(profile);
-    if (choice == 2) return handleSignup(profile);
+    if (choice == 1) {
+        return handleLogin(profile);
+    }
+    if (choice == 2) {
+        return handleSignup(profile);
+    }
     return false;
 }
 
@@ -52,6 +56,6 @@ bool AuthSystem::handleSignup(UserProfile& profile) {
     file << username << "\n" << password << "\n" << zip << "\n";
     file.close();
 
-    cout << "Account created!\n";
+    cout << "\nAccount created!\n";
     return profile.login(username, password);
 }
