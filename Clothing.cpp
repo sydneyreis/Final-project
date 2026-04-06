@@ -67,10 +67,10 @@ string Top::itemDescription(){
 }
 
 string Top::serialize() {
-    return "Top," + getName() + "," + getType() + "," + getColor() + "," +
-           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
-           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
-           to_string(getDressiness()) + "," + sleeve_length;
+    return "Top, " + getName() + ", " + getType() + ", " + getColor() + ", " +
+           to_string(getPattern()) + ", " + to_string(getWarmth()) + ", " +
+           to_string(getRaining()) + ", " + to_string(getBasic()) + ", " +
+           to_string(getDressiness()) + ", " + sleeve_length;
 }
 
 Bottom::Bottom(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, bool shorts, bool skirt)
@@ -104,11 +104,11 @@ string Bottom::itemDescription(){
 }
 
 string Bottom::serialize() {
-    return "Bottom," + getName() + "," + getType() + "," + getColor() + "," +
-           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
-           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
-           to_string(getDressiness()) + "," +
-           to_string(shorts) + "," + to_string(skirt);
+    return "Bottom, " + getName() + ", " + getType() + ", " + getColor() + ", " +
+           to_string(getPattern()) + ", " + to_string(getWarmth()) + ", " +
+           to_string(getRaining()) + ", " + to_string(getBasic()) + ", " +
+           to_string(getDressiness()) + ", " +
+           to_string(shorts) + ", " + to_string(skirt);
 }
 
 Dress::Dress(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length)
@@ -133,10 +133,10 @@ string Dress::itemDescription(){
 }
 
 string Dress::serialize() {
-    return "Dress," + getName() + "," + getType() + "," + getColor() + "," +
-           to_string(getPattern()) + "," + to_string(getWarmth()) + "," +
-           to_string(getRaining()) + "," + to_string(getBasic()) + "," +
-           to_string(getDressiness()) + "," + length;
+    return "Dress, " + getName() + ", " + getType() + ", " + getColor() + " " +
+           to_string(getPattern()) + ", " + to_string(getWarmth()) + ", " +
+           to_string(getRaining()) + ", " + to_string(getBasic()) + ", " +
+           to_string(getDressiness()) + ", " + length;
 }
 
 Coat::Coat(string name, string type, string color, bool pattern, int warmth_Level, bool raining, bool basic, int dressiness, string length, bool waterproof)
