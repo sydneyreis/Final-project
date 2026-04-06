@@ -53,6 +53,7 @@ int main(){
             break;
         } else if (choice == 1) { // ADD CLOTHING ITEM 
             user_closet.addClothing();
+            profile.saveToFile();
         } else if (choice == 2) { // REMOVE CLOTHING ITEM
             string test;
             getline(cin, test);
@@ -60,6 +61,7 @@ int main(){
             cout << "What item do you want to remove?: " << endl; 
             getline(cin, itemToRemove);
             user_closet.removeItem(itemToRemove);
+            profile.saveToFile();
         } else if (choice == 3) { // GENERATE OUTFIT
             string test;
             getline(cin, test);
@@ -72,8 +74,12 @@ int main(){
             cin >> temp;
             cin.ignore();
             vector<Clothing*> outfit = user_closet.generateOutfit(dressinessLevel, temp);
-            for (Clothing* item : outfit) {
-                cout << "+ " << item->getName() << ": " << item->itemDescription() << endl;
+            if (outfit.empty()) {
+                cout << "Could not generate an outfit with your current closet." << endl;
+            } else {
+                for (Clothing* item : outfit) {
+                    cout << item->getName() << ": " << item->itemDescription() << endl;
+                }
             }
         } else if (choice == 4) { // SAVE AN OUTFIT
             vector<Clothing*> outfitItems;
