@@ -1,15 +1,17 @@
 all:
 	make clothing
-	g++ clothing.o main.cpp -o main
+	make authenticate
+	make user
+	g++ clothing.o auth.o user.o main.cpp -o ForecastFits
 
 clothing: Clothing.cpp Clothing.h
 	g++ -c Clothing.cpp -o clothing.o
 
-authenticate: Clothing.cpp Clothing.h
-	g++ -c Clothing.cpp -o clothing.o
+authenticate: AuthSystem.cpp AuthSystem.h UserProfile.h
+	g++ -c AuthSystem.cpp -o auth.o
 
-clothing: Clothing.cpp Clothing.h
-	g++ -c Clothing.cpp -o clothing.o
+user: UserProfile.cpp UserProfile.h Closet.h Clothing.h
+	g++ -c UserProfile.cpp -o user.o
 
 clean:
-	rm -f main clothing.o closet.o
+	rm -f main clothing.o auth.o user.o
