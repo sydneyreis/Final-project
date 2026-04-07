@@ -5,5 +5,11 @@ all:
 clothing: Clothing.cpp Clothing.h
 	g++ -c Clothing.cpp -o clothing.o
 
+authenticate: Clothing.cpp Clothing.h
+	g++ -c Clothing.cpp -o clothing.o
+
+clothing: Clothing.cpp Clothing.h
+	g++ -c Clothing.cpp -o clothing.o
+
 clean:
 	rm -f main clothing.o closet.o
