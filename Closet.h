@@ -281,6 +281,7 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
     vector<Clothing*> bottoms;
     vector<Clothing*> shoes;
     vector<Clothing*> coats;
+    vector<Clothing*> dresses;
 
     for(int i =0; i < closetItems.size(); i ++){
         if(closetItems[i]->getType() == "Top"){
@@ -294,6 +295,9 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
         }
         if(closetItems[i]->getType() == "Coat"){
             coats.push_back(closetItems[i]);
+        }
+        if(closetItems[i]->getType() == "Dress"){
+            dresses.push_back(closetItems[i]);
         }
     }
 
@@ -325,6 +329,12 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
         }
     }
 
+    for(int i = dresses.size() - 1; i >= 0; i--){
+    if(!(dresses[i]->getDressiness() >= minDress && dresses[i]->getDressiness() <= maxDress)){
+        dresses.erase(dresses.begin() + i);
+    }   
+    }
+
     //removing inappropriate weather items 
 
     for(int i = tops.size() - 1; i >= 0; i--){
@@ -338,6 +348,13 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
         int warmth = coats[i]->getWarmth() * 15;
         if(!(warmth >= avgTemp - 10 && warmth <= avgTemp + 10)){
             coats.erase(coats.begin() + i);
+        }
+    }
+
+    for(int i = dresses.size() - 1; i >= 0; i--){
+        int warmth = dresses[i]->getWarmth() * 15;
+        if(!(warmth >= avgTemp - 10 && warmth <= avgTemp + 10)){
+            dresses.erase(dresses.begin() + i);
         }
     }
 
@@ -379,14 +396,32 @@ vector<Clothing*> Closet<T>::generateOutfit(int dressiness, int avgTemp) {
 
     // return outfit;
 
-    if (tops.empty() || bottoms.empty() || shoes.empty()) {
+    bool canTopOutfit = !tops.empty() && !bottoms.empty() && !shoes.empty();
+    bool canDressOutfit = !dresses.empty() && !shoes.empty();
+
+    if (!canTopOutfit && !canDressOutfit) {
         cout << "Not enough matching items to generate an outfit." << endl;
-        return outfit; // returns empty — handle this in the caller
+        return outfit;
     }
 
-    outfit.push_back(tops[rand() % tops.size()]);
-    outfit.push_back(bottoms[rand() % bottoms.size()]);
-    outfit.push_back(shoes[rand() % shoes.size()]);
+    //outfit.push_back(tops[rand() % tops.size()]);
+    //outfit.push_back(bottoms[rand() % bottoms.size()]);
+    //outfit.push_back(shoes[rand() % shoes.size()]);
+
+    uniform_int_distribution<int> choiceDist(0, 1);
+    int rando = choiceDist(gen);
+
+
+    if (canDressOutfit && (!canTopOutfit || rando == 1)) {
+        outfit.push_back(dresses[rand() % dresses.size()]);
+        outfit.push_back(shoes[rand() % shoes.size()]);} 
+        
+    else {
+        outfit.push_back(tops[rand() % tops.size()]);
+        outfit.push_back(bottoms[rand() % bottoms.size()]);
+        outfit.push_back(shoes[rand() % shoes.size()]);
+    }
+
 
     if(avgTemp < 50){
         outfit.push_back(coats[rand() % coats.size()]);
