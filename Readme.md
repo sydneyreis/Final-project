@@ -9,50 +9,50 @@ Program Description:
 #### Pre-Questionnaire
 1.  *How do you decide what to wear on a regular day?*
 
-    ```blah.```
+   "Every morning when I wake up I check the weather. Then I think about how nice I want to look. From there I go through all my clothes and try on a bunch of different things and eventually end up with an outfit"
 
 2. *How long does it typically take you to pick out an outfit?*
 
-    ```blah.```
+    "Like 10ish mins (some days more some days less)"
 
 3. *Do you tend to re-wear the same few outfits repeatedly?*
 
-    ```blah.```
+    "I try not to but like yea I do"
 
 4. *Do you check the weather app when deciding what to wear?*
 
-    ```blah.```
+    "Every single day"
 
 5. *How important is it to you that your outfit matches or coordinates?*
 
-    ```blah.```
+    "Super important"
 
 
 #### Post-Questionnaire
 
 1.  *How user-friendly was adding/removing clothing?*
 
-    ```blah.```
+    "Adding and removing clothing was super intuitive, but I think the quantity of prompts felt potentially unneccesary"
 
 2. *How did you feel about the outfits generated? Would you wear them in real life? Were they appropriate for the dressiness/occasion and weather?*
 
-    ```blah.```
+    "The outfits were all great. The clothing all matched very well and was perfect for whatever weather and level of nice I want to look."
 
 3. *Was the input needed from you clear (e.g. could you understand the scaling of the item requested of you)?*
 
-    ```blah.```
+    "I wrote it so yes, but I could see how it could be confusing. The wording could for sure be cleaned up"
 
 4. *Rate the usefulness of the program for daily life on a scale of 1 to 5?*
 
-    ```blah.```
+    "4"
 
 5. *Do you have suggestions to improve the program?*
 
-    ```blah.```
+    "I think examples could be great for dressiness/ weather. Maybe the internal weather system is revealed to user like: enter 0: if you would wear this item between 0 and 15 degrees etc. That way they could make better judgement calls"
 
 6. *Any other comments, questions, or critiques? (Put N/A if no comment)*
 
-    ```blah.```
+    "N/A"
 
 ### User #2: College Student (External)
 #### Pre-Questionnaire
