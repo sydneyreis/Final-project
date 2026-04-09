@@ -58,50 +58,49 @@ Program Description:
 #### Pre-Questionnaire
 1.  *How do you decide what to wear on a regular day?*
 
-    ```blah.```
+    "I usually pick it out based on the weather and how busy I am for the day. If I have a busy day I prefer to wear casual clothes, but if I have something more professional in my schedule I may prefer to wear more formal clothing."
 
 2. *How long does it typically take you to pick out an outfit?*
 
-    ```blah.```
+    "About 5 mins"
 
 3. *Do you tend to re-wear the same few outfits repeatedly?*
 
-    ```blah.```
+    "I try not to but I am sure that I do"
 
 4. *Do you check the weather app when deciding what to wear?*
 
-    ```blah.```
+    "Always"
 
 5. *How important is it to you that your outfit matches or coordinates?*
 
-    ```blah.```
+    "Very important"
 
 
 #### Post-Questionnaire
 
 1.  *How user-friendly was adding/removing clothing?*
 
-    ```blah.```
+    Pretty, some small issues with the temperature being confusing, and some of the inputs being looked for, like dress length, not being clear.
 
 2. *How did you feel about the outfits generated? Would you wear them in real life? Were they appropriate for the dressiness/occasion and weather?*
 
-    ```blah.```
+ Yes! I thought they were all super cute and appropriate based on my inputs.
 
 3. *Was the input needed from you clear (e.g. could you understand the scaling of the item requested of you)?*
-
-    ```blah.```
+Like I said in #1, some small issues, but overall pretty clear.`
 
 4. *Rate the usefulness of the program for daily life on a scale of 1 to 5?*
 
-    ```blah.```
+   5
 
 5. *Do you have suggestions to improve the program?*
 
-    ```blah.```
+   Maybe just making the input being asked for more clear, like if an item could go warm or cold (like jeans or shoes) then telling users clearly to put a 3.
 
 6. *Any other comments, questions, or critiques? (Put N/A if no comment)*
 
-    ```blah.```
+   :P
 
 
 
