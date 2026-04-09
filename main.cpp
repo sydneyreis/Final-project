@@ -80,8 +80,9 @@ int main() {
             if (outfit.empty()) {
                 cout << "To use this feature please input more clothing items." << endl;
             } else {
+                cout << "\nFor today's outfit you should wear your: " << endl;
                 for (Clothing* item : outfit) {
-                    cout << item->getName() << ": " << item->itemDescription() << endl;
+                    cout << "   -" << item->getName() << endl;
                 }
             }
         } else if (choice == 4) { // SAVE AN OUTFIT
